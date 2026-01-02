@@ -3,228 +3,295 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARMORITE – Because You Have Places to be</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-/* Reset & Base */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body {background: linear-gradient(135deg,#0f0c29,#302b63,#24243e); color:#fff; line-height:1.6; scroll-behavior:smooth;}
-a {text-decoration:none; color:inherit;}
-button {cursor:pointer;}
+<title>ARMORITE – Because You Have Places To Be</title>
 
-/* Global animations */
-.fade-in {animation:fadeIn 1.2s ease forwards; opacity:0;}
-@keyframes fadeIn {to{opacity:1;}}
+<!-- Premium Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #0b0d10;
+  --bg-soft: #12151c;
+  --gold: #c9a24d;
+  --emerald: #2ce3c2;
+  --text-main: #f5f5f5;
+  --text-muted: #b5b5b5;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #141824, #090b10);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 
 /* Navbar */
 nav {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 50px; background:rgba(0,0,0,0.5);
-  position:fixed; width:100%; z-index:100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 22px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,10,15,0.6);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
 }
-nav h1 {font-weight:700; font-size:28px; color:#FFD700;}
-nav ul {display:flex; list-style:none;}
-nav ul li {margin-left:30px; font-weight:600; transition:0.3s;}
-nav ul li:hover {color:#00FFFF;}
 
-/* Hero Section */
+nav h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+}
+
+nav ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--emerald);
+}
+
+/* Hero */
 .hero {
-  display:flex; align-items:center; justify-content:center;
-  flex-direction:column; text-align:center;
-  min-height:100vh; background:linear-gradient(135deg,#1f1c2c,#928dab);
-  position:relative; overflow:hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px;
 }
-.hero img {width:250px; animation:float 4s ease-in-out infinite;}
-@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);}}
-.hero h2 {font-size:48px; margin:20px 0; color:#FFD700;}
-.hero p {font-size:20px; margin-bottom:30px; color:#fff;}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  max-width: 900px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero p {
+  font-size: 22px;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 48px;
+  animation: fadeUp 1.6s ease;
+}
+
 .hero button {
-  padding:15px 40px; background:#00FFFF; border:none; border-radius:50px;
-  font-weight:600; color:#000; font-size:18px; transition:0.3s;
+  padding: 18px 54px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, var(--gold), var(--emerald));
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeUp 2s ease;
 }
-.hero button:hover {background:#FFD700; color:#000; transform:scale(1.05);}
+
+.hero button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px rgba(44,227,194,0.4);
+}
 
 /* Sections */
-section {padding:100px 50px;}
-.section-title {font-size:36px; margin-bottom:50px; color:#FFD700; text-align:center;}
-.features {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px;}
-.feature-card {background:rgba(255,255,255,0.05); padding:30px; border-radius:20px; text-align:center; transition:0.3s;}
-.feature-card:hover {transform:translateY(-10px); background:rgba(255,255,255,0.1);}
-.feature-card img {width:80px; margin-bottom:20px;}
-.feature-card h3 {margin-bottom:10px; color:#00FFFF;}
+section {
+  padding: 120px 80px;
+}
 
-/* How it works */
-.how-it-works {display:flex; flex-wrap:wrap; justify-content:space-around; gap:40px;}
-.step {flex:1; min-width:250px; background:rgba(255,255,255,0.05); padding:20px; border-radius:20px; transition:0.3s; text-align:center;}
-.step:hover {transform:scale(1.05);}
-.step img {width:80px; margin-bottom:15px;}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 46px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 20px;
+  margin-bottom: 80px;
+}
+
+/* Feature Cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  background: linear-gradient(180deg, #151a24, #0d1016);
+  padding: 40px;
+  border-radius: 24px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--emerald);
+}
+
+.card p {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
 
 /* Gallery */
-.gallery {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
-.gallery img {width:250px; border-radius:20px; transition:0.3s; filter:drop-shadow(0 0 15px #00FFFF);}
-.gallery img:hover {transform:scale(1.05); filter:drop-shadow(0 0 25px #FFD700);}
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
-/* Pricing */
-.pricing {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; text-align:center;}
-.price-card {background:rgba(255,255,255,0.05); padding:30px; border-radius:20px; transition:0.3s;}
-.price-card:hover {transform:translateY(-10px); background:rgba(255,255,255,0.1);}
-.price-card h3 {margin-bottom:15px; color:#FFD700;}
-.price-card p {margin-bottom:10px; font-size:18px;}
+.gallery img {
+  width: 260px;
+  border-radius: 22px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.gallery img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 50px rgba(201,162,77,0.5);
+}
 
 /* CTA */
-.cta {text-align:center; padding:80px 20px; background:linear-gradient(135deg,#1f1c2c,#928dab);}
-.cta button {padding:20px 50px; font-size:20px; background:#00FFFF; border:none; border-radius:50px; font-weight:700; color:#000; transition:0.3s;}
-.cta button:hover {background:#FFD700; transform:scale(1.05);}
+.cta {
+  background: linear-gradient(135deg, #141824, #0a0d13);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.cta button {
+  padding: 18px 60px;
+  font-size: 20px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, var(--emerald), var(--gold));
+  cursor: pointer;
+  font-weight: 600;
+}
 
 /* Footer */
-footer {padding:40px; text-align:center; background:rgba(0,0,0,0.5);}
-footer p {color:#aaa; font-size:16px;}
-footer a {color:#FFD700; margin:0 10px; font-weight:600;}
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  background: #07090d;
+}
 
-/* Scroll animation helper */
-.scroll-fade {opacity:0; transform:translateY(50px); transition:0.8s;}
-.scroll-fade.visible {opacity:1; transform:translateY(0);}
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
 <nav>
   <h1>ARMORITE</h1>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#features">Features</a></li>
-    <li><a href="#howitworks">How it Works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#designs">Design</a></li>
     <li><a href="#order">Order</a></li>
   </ul>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero">
-  <img src="images/bracelet.png" alt="ARMORITE Bracelet">
-  <h2>Because You Have Places to be</h2>
-  <p>Wearable, smart, everyday personal safety</p>
-  <button onclick="document.location='#order'">Order Now</button>
+  <div>
+    <h2>Because You Have Places To Be</h2>
+    <p>ARMORITE is not a gadget. It is invisible protection — seamlessly integrated into your everyday life.</p>
+    <button onclick="location.href='#order'">Pre-Order Now</button>
+  </div>
 </section>
 
-<!-- About Section -->
-<section id="about">
-  <h2 class="section-title">About ARMORITE</h2>
-  <p class="fade-in" style="text-align:center; max-width:700px; margin:0 auto;">
-    ARMORITE is a smart safety bracelet that blends into your lifestyle. Invisible protection, ready for everyday use by everyone.
-  </p>
-</section>
-
-<!-- Features Section -->
 <section id="features">
-  <h2 class="section-title">Features</h2>
+  <h2 class="section-title">Designed for Everyday Safety</h2>
+  <p class="section-sub">Technology that disappears into your lifestyle</p>
   <div class="features">
-    <div class="feature-card">
-      <img src="images/sensors.png" alt="Sensors">
-      <h3>Hidden Sensors</h3>
-      <p>5 pressure sensors for discreet activation</p>
+    <div class="card">
+      <h3>Invisible Protection</h3>
+      <p>Looks like a bracelet. Functions like armor.</p>
     </div>
-    <div class="feature-card">
-      <img src="images/gps.png" alt="GPS">
-      <h3>GPS Tracking</h3>
-      <p>Real-time location to emergency contacts</p>
+    <div class="card">
+      <h3>AI Panic Validation</h3>
+      <p>Reduces false alarms and ensures reliable alerts.</p>
     </div>
-    <div class="feature-card">
-      <img src="images/ai.png" alt="AI">
-      <h3>AI Assistance</h3>
-      <p>Smart analysis reduces false alarms</p>
-    </div>
-    <div class="feature-card">
-      <img src="images/video.png" alt="Video">
-      <h3>Audio & Video</h3>
-      <p>Records during panic mode for evidence</p>
+    <div class="card">
+      <h3>Layered Architecture</h3>
+      <p>Engineered protection beneath luxury aesthetics.</p>
     </div>
   </div>
 </section>
 
-<!-- How it Works Section -->
-<section id="howitworks">
-  <h2 class="section-title">How It Works</h2>
-  <div class="how-it-works">
-    <div class="step">
-      <img src="images/bracelet.png" alt="Step 1">
-      <h3>Detect Danger</h3>
-      <p>Bracelet is always ready</p>
-    </div>
-    <div class="step">
-      <img src="images/sensors.png" alt="Step 2">
-      <h3>Activate</h3>
-      <p>Discreetly press hidden sensors</p>
-    </div>
-    <div class="step">
-      <img src="images/ai.png" alt="Step 3">
-      <h3>Alert & Analyze</h3>
-      <p>AI evaluates situation and notifies contacts</p>
-    </div>
-  </div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery">
-  <h2 class="section-title">Gallery</h2>
+<section id="designs">
+  <h2 class="section-title">Luxury Meets Technology</h2>
+  <p class="section-sub">Crafted to be worn every day</p>
   <div class="gallery">
-    <img src="images/design1.png" alt="Design 1">
-    <img src="images/design2.png" alt="Design 2">
-    <img src="images/design3.png" alt="Design 3">
+    <img src="images/design1.png">
+    <img src="images/design2.png">
+    <img src="images/design3.png">
   </div>
 </section>
 
-<!-- Pricing Section -->
-<section id="pricing">
-  <h2 class="section-title">Pricing</h2>
-  <div class="pricing">
-    <div class="price-card">
-      <h3>ARMORITE Bracelet</h3>
-      <p>₹2,499</p>
-    </div>
-    <div class="price-card">
-      <h3>Outer Shells</h3>
-      <p>₹399 – ₹999</p>
-    </div>
-    <div class="price-card">
-      <h3>Subscription</h3>
-      <p>₹99/month</p>
-    </div>
-  </div>
-</section>
-
-<!-- Call to Action Section -->
 <section class="cta" id="order">
-  <h2>Get Your ARMORITE Now!</h2>
-  <button>Order Now</button>
+  <h2>Protection Should Never Be Obvious</h2>
+  <button>Reserve ARMORITE</button>
 </section>
 
-<!-- Footer -->
 <footer>
-  <p>&copy; 2025 ARMORITE | SOSync</p>
-  <p>
-    <a href="#">Instagram</a> |
-    <a href="#">Facebook</a> |
-    <a href="#">Twitter</a>
-  </p>
+  © 2025 ARMORITE • SOSync
 </footer>
 
-<!-- Scroll Animation Script -->
-<script>
-const faders = document.querySelectorAll('.fade-in');
-window.addEventListener('scroll', () => {
-  faders.forEach(fader => {
-    const top = fader.getBoundingClientRect().top;
-    const height = window.innerHeight;
-    if(top < height - 50){
-      fader.classList.add('visible');
-    }
-  });
-});
-</script>
-
 </body>
-
 </html>
